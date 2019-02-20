@@ -1,0 +1,86 @@
+<table class="fixed_header">
+  <div class="table-container">
+    <tbody id="tb">
+      <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Company</th>
+          <th>Date_entry</th>
+          <th>Org_num</th>
+          <th>Address_1</th>
+          <th>City</th>
+          <th>Zip</th>
+          <th>Geo</th>
+          <th>Pan</th>
+          <th>Pin</th>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Fee</th>
+          <th>Guid</th>
+          <th>Date_exit</th>
+          <th>Date_first</th>
+          <th>Date_recent</th>
+          <th>URL</th>
+          <th>Submit</th>
+      </tr>
+      <tr *ngFor="let employer of employersOnPage">
+        <td>{{employer.name}}</td>
+        <td>{{employer.phone}}</td>
+        <td>{{employer.email}}</td>
+        <td>{{employer.company}}</td>
+        <td>{{employer.date_entry}}</td>
+        <td>{{employer.org_num}}</td>
+        <td>{{employer.address_1}}</td>
+        <td>{{employer.city}}</td>
+        <td>{{employer.zip}}</td>
+        <td>{{employer.geo}}</td>
+        <td>{{employer.pan}}</td>
+        <td>{{employer.pin}}</td>
+        <td>{{employer.id}}</td>
+        <td>{{employer.status}}</td>
+        <td>{{employer.fee}}</td>
+        <td>{{employer.guid}}</td>
+        <td>{{employer.date_exit}}</td>
+        <td>{{employer.date_first}}</td>
+        <td>{{employer.date_recent}}</td>
+        <td>{{employer.url}}</td>
+        <td><button (click)="submit(employer)">Submit</button></td>
+      </tr>
+    </tbody>
+  </div> 
+  <tfoot>
+    <tr>
+      <td><button [disabled]="startPage === 0" (click)="pre1()">Previous</button></td>
+      <td><button [disabled]="endPage >= totalNum" (click)="next1()">Next</button></td>
+      <td>          
+        <div>
+          <label>RowsSelection </label>
+          <select #selectedRows (change)="setEmployersOnPage(selectedRows.value)">
+            <option value="{{totalNum}}">--All--</option>
+            <option *ngFor="let selection of selectionSet" value={{selection}}>
+              {{selection}}
+            </option>
+          </select>
+        </div>
+      </td>
+      <td>
+        <div>
+            <label>PagesSelection </label>
+              <select #selectedPage [(ngModel)]="currentPage" (change)="showPages(selectedPage.value,0)">
+                <option *ngFor="let page of pagesArray" value={{page}}>{{page}}</option>
+              </select>
+          </div>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet elementum lorem eu fermentum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vitae gravida sem. Praesent interdum neque vel diam dapibus posuere. Phasellus semper justo et ligula pretium dapibus. Vestibulum venenatis posuere fermentum. Phasellus vitae dolor ullamcorper, convallis nibh quis, volutpat nisl. Sed mollis scelerisque risus non aliquam. Nullam vitae justo venenatis, vestibulum massa vitae, finibus velit. Cras luctus, lectus in pharetra congue, nibh odio ultrices ipsum, sed convallis nisi velit sed purus. Maecenas tristique consectetur magna eget ultricies.
+
+Sed egestas tortor sed vulputate dictum. Quisque vel cursus nisi, ut placerat eros. Fusce at magna aliquet, mattis neque et, blandit nibh. Quisque placerat augue lacus, ac porta leo pretium non. Etiam consequat arcu blandit felis vestibulum tempor. Proin sit amet libero mi. Cras interdum eros mauris. Integer id dolor nec turpis lobortis pretium. Phasellus at turpis dui.
+
+Aenean hendrerit sagittis dignissim. Nunc laoreet dui arcu, ac fermentum magna vehicula sed. Curabitur aliquet laoreet nulla quis finibus. Sed non ante ac purus imperdiet iaculis sit amet dapibus tellus. Praesent varius fringilla dignissim. Vestibulum eget enim condimentum, pharetra augue sed, ullamcorper odio. Suspendisse potenti. Phasellus non odio mollis massa iaculis convallis. Quisque varius nibh felis, nec eleifend lectus fermentum in.
+</p>
+
